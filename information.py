@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Load the dataset
-animal_data = pd.read_csv('/home/gaurav/Desktop/gpt4web/wildlife_conservation_app/data/AnimalDataset.csv')
+animal_data = pd.read_csv('data/AnimalDataset.csv')
 
 def fetch_animal_info_from_dataset(animal_name):
     """
