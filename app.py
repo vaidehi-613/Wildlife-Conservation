@@ -9,7 +9,7 @@ import time
 
 def display_homepage():
     """
-    Display the homepage with a compelling slogan and introduction.
+    Display homepage with a compelling slogan and introduction.
     """
     # st.markdown(
     #      f"""
@@ -28,16 +28,16 @@ def display_homepage():
     st.markdown("<h3 style='text-align: center;'>Join hands in making the world a sanctuary for wildlife.</h3>", unsafe_allow_html=True)
     
     st.write("""
-    ## About the Project
+    #### About the Project
     
 
   This Wildlife Conservation Web Application leverages cutting-edge technology to champion the cause of wildlife conservation. 
-    
-  #### 🌿Count with Precision: Every paw print matters! Our tech doesn't just count animals; it spotlights each one uniquely. 🐾✨
+ 
+🌿Count with Precision: Every paw print matters! Our tech doesn't just count animals; it spotlights each one uniquely. 🐾✨
 
-#### 🔍Classify, Track, Preserve: Beyond counting, WildGuard classifies and tracks, capturing the essence of conservation. An interface where nature and technology dance in harmony. 🌿🤖
+🔍Classify, Track, Preserve: Beyond counting, WildGuard classifies and tracks, capturing the essence of conservation. An interface where nature and technology dance in harmony. 🌿🤖
 
-#### 🌍Unveiling Global Narratives: Join us on a journey spanning continents. From the majestic savannas to the hidden realms of the rainforest, WildGuard summarizes animal information globally. It's not just counting; it's preserving the chronicles of life on Earth.
+🌍Unveiling Global Narratives: Join us on a journey spanning continents. From the majestic savannas to the hidden realms of the rainforest, WildGuard summarizes animal information globally. It's not just counting; it's preserving the chronicles of life on Earth.
  It's not just a project; it's a pledge to craft a world where every flutter, every roar, becomes part of the wild symphony. 🦋🐘
 
 
@@ -64,12 +64,6 @@ def main():
     st.title("Wildlife Conservation Web Application")
 
 
-    
-    
-
-
-
-    # Sidebar with different functionalities
     st.sidebar.title("Features")
 
     choice = st.sidebar.radio("Select a feature", ["Home", "Animal Counting", "Animal Classification", "Animal Information"])
@@ -108,18 +102,16 @@ if __name__ == "__main__":
 
 
 
-st.image("data/elephant-48423.svg", use_column_width=True)  # Add an attractive wildlife image
+st.image("data/elephant-48423.svg", use_column_width=True)  
 
 
 import streamlit as st
 import pandas as pd
 
-# Load the data
 data = pd.read_csv('data/animal.csv')
 
 
 
-# Set custom styles for fonts
 st.markdown("""
 <style>
 h1, h2, h3, h4, h5, h6 {
@@ -131,13 +123,11 @@ body {
 </style>
 """, unsafe_allow_html=True)
 
-st.title('Fictional Animal Population Information')
+st.title('Animal Population Information')
 
-# Dropdown for countries
 countries = data['Country'].unique()
 selected_country = st.selectbox('Select a Country', countries)
 
-# Displaying information based on selected country
 if selected_country:
     st.subheader(f'Animal Population in {selected_country}')
     country_data = data[data['Country'] == selected_country]
