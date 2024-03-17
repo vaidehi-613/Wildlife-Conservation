@@ -2,3 +2,5 @@ streamlit
 time
 numpy
 pandas
+# requirements.txt
+tableauserverclient

@@ -1,5 +1,16 @@
 import streamlit as st
 
+
+# Custom CSS for background image
+background = """
+<style>
+body {
+    background-image: url('Images.png');
+    background-size: cover;
+}
+</style>
+"""
+st.markdown(background, unsafe_allow_html=True)
 def animal_counting():
     st.subheader("Upload your image")
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
