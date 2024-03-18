@@ -16,6 +16,14 @@ import streamlit.components.v1 as components
 import streamlit as st
 
 
+def run():
+    embedded_html = """<div class='tableauPlaceholder' id='viz1710691104915' style='position: relative'><noscript><a href='#'><img alt='Reptiles Found in India ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;ReptilesfoundinIndia&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ReptilesfoundinIndia&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;ReptilesfoundinIndia&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1710691104915');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>"""
+
+    st.components.v1.html(embedded_html, height=700)
+
+run()
+
+
 def display_homepage():
     """
 
@@ -33,7 +41,7 @@ def display_homepage():
     #      unsafe_allow_html=True
     #  )
 
-    st.image("/home/gaurav/Downloads/elephant-48423.svg", use_column_width=True)  # Add an attractive wildlife image
+    st.image("data/elephant-48423.svg", use_column_width=True)  # Add an attractive wildlife image
     st.markdown("<h1 style='text-align: lcenter; color: green;'>Wildlife Conservation</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center;'>Join hands in making the world a sanctuary for wildlife.</h3>", unsafe_allow_html=True)
 
@@ -129,25 +137,9 @@ st.image("data/Identify.png", use_column_width=True)
 
 
 
-
-import streamlit as st
-import pandas as pd
-
 data = pd.read_csv('data/animal.csv')
 
 
-
-st.markdown("""
-            <div class='tableauPlaceholder' id='viz1708268777301' style='position: relative'><noscript><a href='#'><img alt='Reptiles Found in India ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;ReptilesinIndia&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ReptilesinIndia&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;ReptilesinIndia&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-GB' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1708268777301');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-<style>
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Soehne', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
-}
-body {
-    font-family: 'Soehne', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
-}
-</style>
-""", unsafe_allow_html=True)
 
 st.title('Animal Population Information')
 
@@ -162,51 +154,47 @@ if selected_country:
 
 st.image("data/9.png", use_column_width=True)  
 
-
-
-
-
-# Set up connection.
-tableau_auth = TSC.PersonalAccessTokenAuth(
-    st.secrets["tableau"]["token_name"],
-    st.secrets["tableau"]["token_secret"],
-    st.secrets["tableau"]["site_id"],
-)
-server = TSC.Server(st.secrets["tableau"]["server_url"], use_server_version=True)
+# # Set up connection.
+# tableau_auth = TSC.PersonalAccessTokenAuth(
+#     st.secrets["tableau"]["token_name"],
+#     st.secrets["tableau"]["token_secret"],
+#     st.secrets["tableau"]["site_id"],
+# )
+# server = TSC.Server(st.secrets["tableau"]["server_url"], use_server_version=True)
 
 
 # Get various data.
 # Explore the tableauserverclient library for more options.
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
-@st.cache_data(ttl=600)
-def run_query():
-    with server.auth.sign_in(tableau_auth):
+# @st.cache_data(ttl=600)
+# def run_query():
+#     with server.auth.sign_in(tableau_auth):
 
-        # Get all workbooks.
-        workbooks, pagination_item = server.workbooks.get()
-        workbooks_names = [w.name for w in workbooks]
+#         # Get all workbooks.
+#         workbooks, pagination_item = server.workbooks.get()
+#         workbooks_names = [w.name for w in workbooks]
 
-        # Get views for first workbook.
-        server.workbooks.populate_views(workbooks[0])
-        views_names = [v.name for v in workbooks[0].views]
+#         # Get views for first workbook.
+#         server.workbooks.populate_views(workbooks[0])
+#         views_names = [v.name for v in workbooks[0].views]
 
-        # Get image & CSV for first view of first workbook.
-        view_item = workbooks[0].views[0]
-        server.views.populate_image(view_item)
-        server.views.populate_csv(view_item)
-        view_name = view_item.name
-        view_image = view_item.image
-        # `view_item.csv` is a list of binary objects, convert to str.
-        view_csv = b"".join(view_item.csv).decode("utf-8")
+        # # Get image & CSV for first view of first workbook.
+        # view_item = workbooks[0].views[0]
+        # server.views.populate_image(view_item)
+        # server.views.populate_csv(view_item)
+        # view_name = view_item.name
+#         # view_image = view_item.image
+#         # `view_item.csv` is a list of binary objects, convert to str.
+#         view_csv = b"".join(view_item.csv).decode("utf-8")
 
-        return workbooks_names, views_names, view_name, view_image, view_csv
+#         return workbooks_names, views_names, view_name, view_image, view_csv
 
-workbooks_names, views_names, view_name, view_image, view_csv = run_query()
+# workbooks_names, views_names, view_name, view_image, view_csv = run_query()
 
 
-st.subheader("📊 Data")
-st.write(f"And here's the data for view *{view_name}*:")
-st.write(pd.read_csv(StringIO(view_csv)))
+# st.subheader("📊 Data")
+# st.write(f"And here's the data for view *{view_name}*:")
+# st.write(pd.read_csv(StringIO(view_csv)))
 
 def run():
     embedded_html = """

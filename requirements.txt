@@ -1,6 +1,5 @@
-streamlit
-time
+streamlit==1.30.0
 numpy
 pandas
-# requirements.txt
 tableauserverclient
+prettymapp
