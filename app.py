@@ -1,5 +1,6 @@
 from io import StringIO
 import streamlit as st
+import urllib3
 from counting import animal_counting
 from classification import animal_classification
 from upload import upload
@@ -14,50 +15,6 @@ from PIL import Image
 
 import streamlit.components.v1 as components
 
-
-import streamlit as st
-
-images = [
-    "data/Reptiles.jpg",
-    "data/Reptiles.jpg",
-    "data/Reptiles.jpg",
-    "data/Reptiles.jpg",
-    "data/Reptiles.jpg",
-    "data/Reptiles.jpg",
-    "data/Reptiles.jpg",
-    "data/Reptiles.jpg",
-    "data/Reptiles.jpg",
-]
-
-col1, col2, col3 = st.columns(3)
-
-def display_full_image(image_path):
-    with st.expander("Open Image", expanded=True):
-        
-        st.image(image_path, use_column_width=True)
-        if st.button("Close Image"):
-            st.empty()
-
-for i, image_path in enumerate(images):
-    if i < 3:
-        with col1:
-            if st.button(f"Image {i+1}", key=f"button_{i}"):
-                display_full_image(image_path)
-    elif 3 <= i < 6:
-        with col2:
-            if st.button(f"Image {i+1}", key=f"button_{i}"):
-                display_full_image(image_path)
-    else:
-        with col3:
-            if st.button(f"Image {i+1}", key=f"button_{i}"):
-                display_full_image(image_path)
-
-
-
-video_file = open('data/1.mp4', 'rb')
-video_bytes = video_file.read()
-
-st.video(video_bytes)
 
 def display_homepage():
     """
@@ -80,12 +37,16 @@ def display_homepage():
     st.markdown("<h1 style='text-align: lcenter; color: green;'>Wildlife Conservation</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center;'>Join hands in making the world a sanctuary for wildlife.</h3>", unsafe_allow_html=True)
 
-    
+    video_file = open('data/1.mp4', 'rb')
+    video_bytes = video_file.read()
+
+    st.video(video_bytes)
+
     st.write("""
  
 
 Welcome to our Wildlife Conservation Web Application.
-             We're using state-of-the-art technology to drive the mission of Wildlife Conservation.
+               We're using state-of-the-art technology to drive the mission of Wildlife Conservation.
 
  
 🌿Count with Precision: Our tech doesn't just count animals; it spotlights each one uniquely. 🐾✨
@@ -151,6 +112,65 @@ def main():
         st.header("Animal Information")
         animal_information()
 
+    st.image("data/Identify.png", use_column_width=True)  
+
+    paragraph = """
+    We urgently need to understand the presence and absence of species and their population trends in the areas where we work. Camera trap surveys are an effective method for doing this, but each camera trap survey produces tens of thousands of images, all of which need to be looked at. 
+    but this can involve weeks or even months of painstaking effort. To speed up this process, this web application is crowd-sourcing the identifications through our Instant Wild App. Another method that has huge potential to transform our work is automated image recognition, using the power of machine learning to complete large scale species recognition within images.   
+    By using the essentially limitless processing power of computers to do the hard work of identifying species within images, we can dramatically speed up the analysis of camera trap surveys and monitor wildlife trends in near real time. 
+
+
+    """
+
+
+    paraQ = """
+    Is the image empty? 
+
+    Is there a human in the image? 
+
+    What species group (i.e. Animal or  bird) are present in the image? 
+
+    What specific species are present in the image? 
+
+    How many animals are present in the image? 
+
+    """
+
+    paraC = """
+
+
+    ⦿ Expertise needed for training and testing algorithms. 
+
+    ⦿ Availability of large, manually identified training datasets.
+
+    ⦿ Complex data preparation requirements.
+
+    ⦿ Barriers for implementing algorithms in the field.
+
+    ⦿ Limited adoption due to complexity and accessibility issues.
+
+    """
+
+
+
+
+
+
+    st.markdown("<h2 style='text-align: center;'>Why is machine learning important for  wildlife conservation?</h2>", unsafe_allow_html=True)
+    st.write(paragraph)
+
+
+    st.markdown("<h2 style='text-align: center;'>Key questions of focus include: </h2>", unsafe_allow_html=True)
+
+
+    st.write(paraQ)
+
+
+    st.markdown("<h2 style='text-align: center;'>Challenges of machine learning in wildlife conservation:</h2>", unsafe_allow_html=True)
+
+    st.write(paraC)
+
+
     
     # st.write ("See Map below for the location of the animals")
     # df = pd.DataFrame({
@@ -168,26 +188,29 @@ def main():
 if __name__ == "__main__":
     main()
 
-st.image("data/Identify.png", use_column_width=True)  
 
 
 
-data = pd.read_csv('data/animal.csv')
 
 
 
-st.title('Animal Population Information')
-
-countries = data['Country'].unique()
-selected_country = st.selectbox('Select a Country', countries)
-
-if selected_country:
-    st.subheader(f'Animal Population in {selected_country}')
-    country_data = data[data['Country'] == selected_country]
-    st.write(country_data)
 
 
-st.image("data/9.png", use_column_width=True)  
+# data = pd.read_csv('data/animal.csv')
+
+
+
+# st.title('Animal Population Information')
+
+# countries = data['Country'].unique()
+# selected_country = st.selectbox('Select a Country', countries)
+
+# if selected_country:
+#     st.subheader(f'Animal Population in {selected_country}')
+#     country_data = data[data['Country'] == selected_country]
+#     st.write(country_data)
+
+
 
 # # Set up connection.
 # tableau_auth = TSC.PersonalAccessTokenAuth(
@@ -334,3 +357,26 @@ st.image("data/9.png", use_column_width=True)
 
 # if __name__ == "__main__":
 #     footer()
+
+
+
+
+st.image("data/9.png", use_column_width=True)  
+
+
+st.write("-------")
+st.write("Wildlife Conservation ML Project")
+st.write("Keep in touch with us")
+st.write("Sign up for wildlife updates and ways to get involved") 
+st.button("SIGN UP")
+
+st.write("Guided by : Dr. Mahendra B. Salunke ")
+st.write("Developed by:")
+st.write("- ")
+st.write("- ")
+st.write("- ")
+st.write("- ")
+# Copyright notice
+st.write("Copyright © 2024. All rights reserved.")
+
+st.write("---")

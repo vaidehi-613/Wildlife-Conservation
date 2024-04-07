@@ -164,33 +164,33 @@ def viewer():
 
 def explore():
     
-    st.subheader("Upload an animal image")
-    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+    # st.subheader("Upload an animal image")
+    # uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
-    if uploaded_file is not None:
-        st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True)
-        st.write("Classifying...")
+    # if uploaded_file is not None:
+    #     st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True)
+    #     st.write("Classifying...")
 
-        # Ideally, here you'd use a model like ResNet or VGG for classification
-        # status = classify_animal(uploaded_file)
-        # Mocking the result for now
-        st.write("This animal is:", "Endangered")  # Mock classification
+    #     # Ideally, here you'd use a model like ResNet or VGG for classification
+    #     # status = classify_animal(uploaded_file)
+    #     # Mocking the result for now
+    #     st.write("This animal is:", "Endangered")  # Mock classification
     
     viewer()
 
-from prettymapp.geo import get_aoi
-from prettymapp.osm import get_osm_geometries
-from prettymapp.plotting import Plot
-from prettymapp.settings import STYLES
+# from prettymapp.geo import get_aoi
+# from prettymapp.osm import get_osm_geometries
+# from prettymapp.plotting import Plot
+# from prettymapp.settings import STYLES
 
-aoi = get_aoi(address="Praça Ferreira do Amaral, Macau", radius=1100, rectangular=False)
-df = get_osm_geometries(aoi=aoi)
+# aoi = get_aoi(address="Praça Ferreira do Amaral, Macau", radius=1100, rectangular=False)
+# df = get_osm_geometries(aoi=aoi)
 
-fig = Plot(
-    df=df,
-    aoi_bounds=aoi.bounds,
-    draw_settings=STYLES["Peach"]
-).plot_all()
+# fig = Plot(
+#     df=df,
+#     aoi_bounds=aoi.bounds,
+#     draw_settings=STYLES["Peach"]
+# ).plot_all()
 
-fig.savefig("map.jpg")
+# fig.savefig("map.jpg")
 
