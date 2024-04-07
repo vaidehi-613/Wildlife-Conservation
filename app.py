@@ -4,25 +4,60 @@ from counting import animal_counting
 from classification import animal_classification
 from upload import upload
 from information import animal_information
-from explore import explore
+from explore import display_image, explore
 import pandas as pd
 import numpy as np
 import time
+from PIL import Image
 
-import tableauserverclient as TSC
+# import e as TSC
 
 import streamlit.components.v1 as components
 
+
 import streamlit as st
 
+images = [
+    "data/Reptiles.jpg",
+    "data/Reptiles.jpg",
+    "data/Reptiles.jpg",
+    "data/Reptiles.jpg",
+    "data/Reptiles.jpg",
+    "data/Reptiles.jpg",
+    "data/Reptiles.jpg",
+    "data/Reptiles.jpg",
+    "data/Reptiles.jpg",
+]
 
-def run():
-    embedded_html = """<div class='tableauPlaceholder' id='viz1710691104915' style='position: relative'><noscript><a href='#'><img alt='Reptiles Found in India ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;ReptilesfoundinIndia&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ReptilesfoundinIndia&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;ReptilesfoundinIndia&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1710691104915');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>"""
+col1, col2, col3 = st.columns(3)
 
-    st.components.v1.html(embedded_html, height=700)
+def display_full_image(image_path):
+    with st.expander("Open Image", expanded=True):
+        
+        st.image(image_path, use_column_width=True)
+        if st.button("Close Image"):
+            st.empty()
 
-run()
+for i, image_path in enumerate(images):
+    if i < 3:
+        with col1:
+            if st.button(f"Image {i+1}", key=f"button_{i}"):
+                display_full_image(image_path)
+    elif 3 <= i < 6:
+        with col2:
+            if st.button(f"Image {i+1}", key=f"button_{i}"):
+                display_full_image(image_path)
+    else:
+        with col3:
+            if st.button(f"Image {i+1}", key=f"button_{i}"):
+                display_full_image(image_path)
 
+
+
+video_file = open('data/1.mp4', 'rb')
+video_bytes = video_file.read()
+
+st.video(video_bytes)
 
 def display_homepage():
     """
@@ -196,22 +231,10 @@ st.image("data/9.png", use_column_width=True)
 # st.write(f"And here's the data for view *{view_name}*:")
 # st.write(pd.read_csv(StringIO(view_csv)))
 
-def run():
-    embedded_html = """
-    <div class='tableauPlaceholder' id='viz1708270298125' style='position: relative'><noscript><a href='#'><img alt='Reptiles Found in India ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;ReptilesfoundinIndia&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ReptilesfoundinIndia&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;ReptilesfoundinIndia&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-GB' /></object></div>
-    <script type='text/javascript'>var divElement = document.getElementById('viz1708270298125');var vizElement = divElement.getElementsByTagName('object')[0];vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';var scriptElement = document.createElement('script');scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
-    """
-
-    st.components.v1.html(embedded_html, height=700)
-
-run()
 
 
 
-video_file = open('data/1.mp4', 'rb')
-video_bytes = video_file.read()
 
-st.video(video_bytes)
 
 
 # import streamlit as st
