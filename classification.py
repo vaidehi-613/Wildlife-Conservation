@@ -36,4 +36,4 @@ def animal_classification():
         st.write("Prediction:")
         st.write(prediction)
 
-animal_classification()
+# animal_classification()
