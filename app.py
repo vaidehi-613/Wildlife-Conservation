@@ -130,9 +130,9 @@ def main():
         st.header("Animal Classification")
         animal_classification()
 
-    elif choice == "Animal Information":
-        st.header("Animal Information")
-        animal_information()
+    # elif choice == "Animal Information":
+    #     st.header("Animal Information")
+    #     animal_information()
 
     st.image("data/Identify.png", use_column_width=True)  
 
