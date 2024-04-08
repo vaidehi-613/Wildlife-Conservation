@@ -109,8 +109,8 @@ def main():
     if choice == "Home":
         display_homepage()
 
-    elif choice == "Data Visulaization":
-        st.header("Explore Data Visulaization")
+    elif choice == "Data Visualization":
+        st.header("Explore Data Visualization")
         explore()
 
     elif choice == "Upload Images":
