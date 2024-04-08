@@ -15,6 +15,26 @@ from PIL import Image
 
 import streamlit.components.v1 as components
 
+# Let a Computer do the Tagging
+
+# Animals in your photos are automatically identified using machine learning technology. Thousands of images can be tagged within minutes, saving you time to do the important work.
+# ANALYZE
+
+# Create Maps and Graphs to Share
+
+# Access our suite of tools to analyze wildlife trends. Wildlife Insights can help your team make better decisions and share compelling findings.
+
+
+# DISCOVER
+
+# Explore Wildlife, Worldwide
+
+# Dive into millions of camera trap images from around the world and explore projects in your region.
+
+
+
+
+
 
 def display_homepage():
     """
@@ -89,15 +109,15 @@ def main():
     if choice == "Home":
         display_homepage()
 
-    elif choice == "Explore Data":
-        st.header("Exploe Data Visulaization")
+    elif choice == "Data Visulaization":
+        st.header("Explore Data Visulaization")
         explore()
 
     elif choice == "Upload Images":
         st.header("Upload Images")
         upload()
 
-    elif choice == "Animal Information":
+    elif choice == "Informatation ":
         st.header("Animal Information")
         animal_information()
     elif choice == "Animal Counting":
