@@ -116,6 +116,7 @@ def main():
         st.header("Upload Images")
         upload()
     elif choice == "Animal Detection Model":
+        st.header("Animal Detection Model")
         st.page_link("https://detect.roboflow.com/?model=animal-detection-jvsw5&version=1&api_key=vlmLfp4rGVbfbzmqp8zx", label="ANIMAL DETECTION", icon="🌎")
         
     elif choice == "Informatation ":
