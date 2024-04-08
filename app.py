@@ -5,7 +5,7 @@ from counting import animal_counting
 from classification import animal_classification
 from upload import upload
 from information import animal_information
-from explore import display_image, explore
+from explore import display_image, viewer
 import pandas as pd
 import numpy as np
 import time
@@ -108,15 +108,16 @@ def main():
 
     if choice == "Home":
         display_homepage()
-
     elif choice == "Data Visualization":
         st.header("Explore Data Visualization")
-        explore()
-
+        viewer()
+    
     elif choice == "Upload Images":
         st.header("Upload Images")
         upload()
-
+    elif choice == "Animal Detection Model":
+        st.page_link("https://detect.roboflow.com/?model=animal-detection-jvsw5&version=1&api_key=vlmLfp4rGVbfbzmqp8zx", label="ANIMAL DETECTION", icon="🌎")
+        
     elif choice == "Informatation ":
         st.header("Animal Information")
         animal_information()
