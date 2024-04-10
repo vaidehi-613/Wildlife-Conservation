@@ -49,14 +49,7 @@ def display_full_image(image_path):
     #         st.empty()
 
 def viewer():
-    button_labels = ['Mammals Found in India', 'Clear It', 
-                     'Amphibians Found in India', 'Clear It', 
-                     'countrywise Animals-Endangered Classification Found in India', 'Clear It', 
-                     'Reptiles Found in India', 'Clear It',
-                     'Reptiles Found in India', 'Clear It',
-                     'Wildlife Across India','Clear It',
-                     'Countrywise Animal Species', 'Clear It',
-                     'CountryWise-Threatened Species', 'Clear It']
+    button_labels = ['Countrywise Animals-Endangered Classification Found in India', 'Clear It', 'Wildlife Across India', 'Clear It', 'Reptiles Found in India', 'Clear It', 'Reptiles Found in India', 'Clear It', 'Mammals Found in India', 'Clear It', 'Countrywise Animal Species', 'Clear It', 'CountryWise-Threatened Species', 'Clear It', 'Amphibians Found in India', 'Clear It']
 
     for i in range(0, len(button_labels), 2):
         label = button_labels[i]
@@ -75,16 +68,19 @@ def viewer():
             elif label.startswith("Wildlife Across India"):
                 WildlifeAcrossIndia()
             elif label.startswith("Countrywise Animal Species"):
-                CountryWiseAnimalSpecies()
+                CountryWise()
             elif label.startswith("CountryWise-Threatened Species"):
                 CountryWiseThreatenedSpecies() 
+            elif label.startswith("Countrywise Animals-Endangered Classification Found in India"):
+                 CountryWiseThreatenedSpecies() 
+
             else:
                 st.write("Invalid option")
 
             if st.button(clear_label, key=f'clear_{key}'):
                 st.components.v1.html("", height=0)
 
-    st.title("Viewer")
+    st.title("Data Visualization")
 
 
     # images = [

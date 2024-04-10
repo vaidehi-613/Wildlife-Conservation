@@ -22,5 +22,5 @@ def animal_counting():
         # Ideally, here you'd use a model like YOLO or SSD to detect animals
         # count = model_predict(uploaded_file)
         # Mocking the result for now
-        st.write("Detected animals count:", 5)  # Mock count
+        st.write("Detected animals count:", 1)  # Mock count
 
