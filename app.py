@@ -3,9 +3,9 @@ import streamlit as st
 import urllib3
 from counting import animal_counting
 from classification import animal_classification
-from upload import upload
+from upload import uploads
 from information import animal_information
-from explore import display_image, viewer
+from explore import display_image, explore, viewer
 import pandas as pd
 import numpy as np
 import time
@@ -14,26 +14,6 @@ from PIL import Image
 # import e as TSC
 
 import streamlit.components.v1 as components
-
-# Let a Computer do the Tagging
-
-# Animals in your photos are automatically identified using machine learning technology. Thousands of images can be tagged within minutes, saving you time to do the important work.
-# ANALYZE
-
-# Create Maps and Graphs to Share
-
-# Access our suite of tools to analyze wildlife trends. Wildlife Insights can help your team make better decisions and share compelling findings.
-
-
-# DISCOVER
-
-# Explore Wildlife, Worldwide
-
-# Dive into millions of camera trap images from around the world and explore projects in your region.
-
-
-
-
 
 
 def display_homepage():
@@ -98,43 +78,164 @@ st.button('Rerun')
 
 
 
-def main():
-    st.title("Wildlife Conservation")
 
 
-    st.sidebar.title("Menu")
 
-    choice = st.sidebar.radio("Select", ["Home","Explore Data","Upload Images", "Animal Counting", "Animal Classification", "Animal Information"])
 
-    if choice == "Home":
-        display_homepage()
-    elif choice == "Data Visualization":
-        st.header("Explore Data Visualization")
-        viewer()
-    
-    elif choice == "Upload Images":
-        st.header("Upload Images")
-        upload()
-    elif choice == "Animal Detection Model":
-        st.header("Animal Detection Model")
-        st.page_link("https://detect.roboflow.com/?model=animal-detection-jvsw5&version=1&api_key=vlmLfp4rGVbfbzmqp8zx", label="ANIMAL DETECTION", icon="🌎")
+
+
+
+# import streamlit as st
+
+# from streamlit_option_menu import option_menu
+
+
+# import home, trending, account, your, about
+# st.set_page_config(
+#         page_title="Pondering",
+# )
+
+
+
+# class MultiApp:
+
+#     def __init__(self):
+#         self.apps = []
+
+#     def add_app(self, title, func):
+
+#         self.apps.append({
+#             "title": title,
+#             "function": func
+#         })
+
+#     def run():
+#         # app = st.sidebar(
+#         with st.sidebar:        
+#             app = option_menu(
+#                 menu_title='Pondering ',
+#                 options=['Home','Account','Trending','Your Posts','about'],
+#                 icons=['house-fill','person-circle','trophy-fill','chat-fill','info-circle-fill'],
+#                 menu_icon='chat-text-fill',
+#                 default_index=1,
+#                 styles={
+#                     "container": {"padding": "5!important","background-color":'black'},
+#         "icon": {"color": "white", "font-size": "23px"}, 
+#         "nav-link": {"color":"white","font-size": "20px", "text-align": "left", "margin":"0px", "--hover-color": "blue"},
+#         "nav-link-selected": {"background-color": "#02ab21"},}
+                
+#                 )
+
         
-    elif choice == "Informatation ":
-        st.header("Animal Information")
-        animal_information()
-    elif choice == "Animal Counting":
-        st.header("Animal Counting")
+#         if app == "Home":
+#             home.app()
+#         if app == "Account":
+#             account.app()    
+#         if app == "Trending":
+#             trending.app()        
+#         if app == 'Your Posts':
+#             your.app()
+#         if app == 'about':
+#             about.app()    
+             
+          
+             
+#     run()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+              
+# def main():
+#     st.title("Wildlife Conservation")
+
+
+#     st.sidebar.title("Menu")
+
+#     choice = st.sidebar.radio("Select", ["Home","Explore Data","Upload Images", "Animal Counting", "Animal Classification", "Animal Information"])
+
+#     if choice == "Home":
+#         display_homepage()
+
+#     elif choice == "Explore Data":
+#         st.header("Exploe Data Visulaization")
+#         explore()
+
+#     elif choice == "Upload Images":
+#         st.header("Upload Images")
+#         upload()
+
+#     elif choice == "Animal Information":
+#         st.header("Animal Information")
+#         animal_information()
+#     elif choice == "Animal Counting":
+#         st.header("Animal Counting")
+#         animal_counting()
+
+#     elif choice == "Animal Classification":
+#         st.header("Animal Classification")
+#         animal_classification()
+
+#     elif choice == "Animal Information":
+#         st.header("Animal Information")
+#         animal_information()
+import streamlit as st
+from streamlit_option_menu import option_menu
+import streamlit as st
+from streamlit_option_menu import option_menu
+import explore, upload, counting
+
+
+def main():
+    # st.title("Wildlife Conservation")
+    st.sidebar.title("")
+
+    with st.sidebar:        
+        app = option_menu(
+            menu_title='Wildlife Insights ',
+            options=['Home','Data Visualization','Upload Images','Animal Counting','Animal Classification','Animal Information'],
+            icons=['house-fill','chart-line','cloud-upload','person-badge','grid','info-circle'],
+            menu_icon='chat-text-fill',
+            default_index=0,
+            styles={
+                "container": {"padding": "5px","background-color":''},
+                "icon": {"color": "black", "font-size": "23px"}, 
+                "nav-link": {"color":"black","font-size": "15px", "text-align": "left", "margin":"0px", "--hover-color": "Green"},
+                "nav-link-selected": {"background-color": "#02ab21"},
+            }
+        )
+
+    if app == "Home":
+        display_homepage()
+
+    elif app == "Data Visualization":
+        viewer()
+
+    elif app == "Upload Images":
+        uploads()
+
+    elif app == "Animal Counting":
         animal_counting()
 
-    elif choice == "Animal Classification":
-        st.header("Animal Classification")
+    elif app == "Animal Classification":
         animal_classification()
 
-    # elif choice == "Animal Information":
-    #     st.header("Animal Information")
-    #     animal_information()
+    elif app == "Animal Information":
+        animal_information()
 
-    st.image("data/Identify.png", use_column_width=True)  
+    st.image("data/Identify.png", use_column_width=True) 
 
     paragraph = """
     We urgently need to understand the presence and absence of species and their population trends in the areas where we work. Camera trap surveys are an effective method for doing this, but each camera trap survey produces tens of thousands of images, all of which need to be looked at. 
@@ -366,9 +467,7 @@ if __name__ == "__main__":
 
 # def footer():
 #     myargs = [
-#         "Made in ",
-#         image('https://avatars3.githubusercontent.com/u/45109972?s=400&v=4',
-#               width=px(25), height=px(25)),
+#         "Made in ",image('https://avatars3.githubusercontent.com/u/45109972?s=400&v=4',width=px(25), height=px(25)),
 #         " with ❤️ by ",
 #         link("https://twitter.com/ChristianKlose3", "@ChristianKlose3"),
 #         br(),
