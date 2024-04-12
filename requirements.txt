@@ -6,3 +6,4 @@ prettymapp
 tensorflow
 streamlit_option_menu
 inference_sdk
+opencv-python
