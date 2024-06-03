@@ -2,7 +2,13 @@
 # Wildlife-Conservation
 =======
 # Wildlife Conservation and Analysis Using Machine Learning
+#A web application that counts the number of animals in a specific region using cam-
 
+era recordings, classifies animals as endangered or extinct using images, and summa-
+
+rizes animal information from across the world, including migration and biodiversity
+
+of animals in various national parks.
 
 ```bash
 $ pip install streamlit
