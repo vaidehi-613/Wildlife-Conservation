@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "wildlife-comprehension",
+  "private_key_id": "75d27ea2fd6b0595a4b971b71dff7c2ab8645241",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCNGJFRULJJWQjM\nl2nX31Cq/HZc8Xa3ODnmfJrocVpyLSgh/eA8+TEeA1grPE1zSqPQJIkHHRCLStFC\nfd0H05zKgf9HUtG+tU0zfBkBuxokJM76zHAguCOjptk7+WvD/qsDfh8KMtTk1ch7\n4sH7gZLI+raS141kClpcM6v40SgC5PIQuWMi6voCkoqNvHWzv7FgZYFXl2XUtARB\nS800UN2jUz9qHnKvS4mQd2BXzBOw9QROe98G9lUy9bxWjn8ZWkOO6zKhOMYci1c8\nDPAi9AHaJwgM5PLAMRtjnFHfWZxbZwMOByQMWiUfTLt9UDXbFCZ0JypE2Vypm9aN\nJ0tA8/l3AgMBAAECggEAAQwQ7yWYKEG1ntmGVcaSd6EGozg3ARQlarzRPs/EKOP1\n88nAP+FA1OHiw7BB6vC5Uf6iDajEQZSVEPgHy4GZbfYAN7njcMebs7zufPgnbFp9\noNm4nOv9aikhrcQC206zFrlQtnZuk5Wz5uUICQ4iTle1TtlQN/aeMbeXVTOnfovx\n4KbVPPR9C7yNyaepMwVg7aYyC/ATJa87WRl4U4t7N/6Zr5kH36bKz14Bh9M3RQk7\nos2vLxDNWA2JNlhreC8RjS7q1zSYsDcM82nVNBNxsdZzq4zooZXiJKGdkO0zzcf/\nnR3Misa1j7S1FJDtsLnelUbfVULGM5FSz9wAJXtznQKBgQC/JTqdT61E+nYd1LDe\nIWwAi1ZRrAtyfdtrkDTD1WbtwAGXRlG2OvMU516uZ1iPPa78nlvL6PhbR6gBlIpx\nZog4JHHzleHGbHiFIgIWwaLGrWwN8gfFpz0qPreVyPqikh8Rul/ovF3SPuql5Z97\nPgO/4LXy/3HDEI7ctUU6nrRxawKBgQC8+BMHBeuDp9QKTZBylKktT0woZEQ26hee\nPIs0QNCQ7bDPXQfx9I6D/phZAzsxsfiEJ5Bt3nkNcB0OvuxOIiWfHTorUabxWELI\ny1B+2/d0+Z++kdH08vcgmMh9qxgK41lZEHZncmYyctcR5iYYl8nX366kvMUADDWr\nj1jNhzL/JQKBgEFy1ecXaRS9TcRZF1Z3yytEioHcju7c+UyTS/3iDCRMIj9R7Jih\nBqqZrmm5KTGixU/qSTRAyQk4N+aSnfTGTs4qbHojT/NJINs1EdII61tr9huwS8j5\nwo+8ec/nySnxLoI7dquSE+3xbRbw0PK6AT6qCqLxpFpOSRx5VQMFZHORAoGATBEc\nL66NYGDVdRRF+imndCrAgF3kK6rNuQ+sBWu1yTE1BDPxt87282Ev2Fz5ngaDAEeg\n1ulAF02zFLV8D/Ok60jrmnZy2iHqOEPHcll/YiH90MuIFa8cFY4K3rNZqUBdPgHn\nd7rQMqyRsI3RdgLb6D8NYRjvwBYqIJZCa/FpcNUCgYAbsDjPiCBr9pQejNsA59s+\n2B/JhJnGn+Oc2ahvjV4k8qGHeyoNnQQa8rqH6PDGNgwxJQYZyXp23a9eeEeLfkCx\nLNVwhN6m4fYXBO3BqrWwByBMJe5fp59tT7aPHdEbYsdnuaUwGhNwIaSZFlfKLNHB\nBqdUsEZnY5b+CUDnok3jtw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-2ga9x@wildlife-comprehension.iam.gserviceaccount.com",
+  "client_id": "115857496414423943584",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-2ga9x%40wildlife-comprehension.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
