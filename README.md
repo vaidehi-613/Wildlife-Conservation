@@ -14,7 +14,7 @@ Anyone collecting camera trap photos can upload them to Wildlife Project. Photos
 Animals in your photos are automatically identified using machine learning technology. Thousands of images can be tagged within minutes, saving you time to do the important work.
 
 #### Download Files of Images and Videos for reference (BETA Testing of Model)  :
-[Image1](https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/White_Rhino_at_Working_with_Wildlife.jpg/1200px-White_Rhino_at_Working_with_Wildlife.jpg)
+[Image1](https://raw.githubusercontent.com/gauravsuryvanshi06/Wildlife-Conservation/main/OnlyTestingImage.png)
 [Image2](https://cdn.mos.cms.futurecdn.net/HjFE8NKWuCmgfHCcndJ3rK-1200-80.jpg)
 [Video1](https://github.com/gauravsuryvanshi06/Wildlife-Conservation/raw/main/data/51.mp4)
 [Video2](https://github.com/gauravsuryvanshi06/Wildlife-Conservation/raw/main/data/1D.mp4)
