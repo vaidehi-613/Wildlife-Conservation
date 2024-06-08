@@ -419,7 +419,6 @@ def robo2():
     if uploaded_file is not None:
         st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True)
         
-
         if upload_method == "Upload":
             response = call_api(model, version, api_key, file=uploaded_file, classes=classes, confidence=confidence, overlap=overlap, format=format.lower())
             message_placeholder = st.empty()
@@ -438,9 +437,12 @@ def robo2():
                 data = response.json()
                 detected_animals = display_text_result(data)
                 st.write(detected_animals[0])
-
-
+                ii=0
                 for index, animal in enumerate(detected_animals):
+                    if(ii==1):
+                        break
+                    ii+=1
+                    
                     user_input = animal
                     if user_input:
                         matches = animal_data[animal_data['Animal'].str.lower().str.contains(user_input)]['Animal'].unique()
