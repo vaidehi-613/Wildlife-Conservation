@@ -1,18 +1,24 @@
+
+from random import choice
+from d import video1
+from test import home_page, login_or_signup, survey_form
+import explore, upload, counting
+from streamlit_option_menu import option_menu
+
 from io import StringIO
 import streamlit as st
-import urllib3
-from counting import animal_counting
 from classification import animal_classification
+from counting import animal_counting
+
 from upload import uploads
-from information import animal_information
+from information import animal_information, robo, robo1, robo2
 from explore import display_image, explore, viewer
 import pandas as pd
+from streamlit_option_menu import option_menu
 import numpy as np
-import time
+
 from PIL import Image
-
-# import e as TSC
-
+import account
 import streamlit.components.v1 as components
 
 
@@ -21,26 +27,15 @@ def display_homepage():
 
     Display homepage with a compelling slogan and introduction.
     """
-    # st.markdown(
-    #      f"""
-    #      <style>
-    #      .stApp {{
-    #          background: url("https://happydays365.org/wp-content/uploads/2019/12/World-Wildlife-Conservation-Day-980x653.jpg");
-    #          background-size: cover
-    #      }}
-    #      </style>
-    #      """,
-    #      unsafe_allow_html=True
-    #  )
 
     st.image("data/elephant-48423.svg", use_column_width=True)  # Add an attractive wildlife image
     st.markdown("<h1 style='text-align: lcenter; color: green;'>Wildlife Conservation</h1>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center;'>Join hands in making the world a sanctuary for wildlife.</h3>", unsafe_allow_html=True)
 
     video_file = open('data/1.mp4', 'rb')
     video_bytes = video_file.read()
 
     st.video(video_bytes)
+    st.markdown("<h3 style='text-align: center;'>Join hands in making the world a sanctuary for wildlife.</h3>", unsafe_allow_html=True)
 
     st.write("""
  
@@ -61,142 +56,7 @@ Animals in your photos are automatically identified using machine learning techn
 
     """)
     
-    # with st.status("Downloading data...", expanded=True) as status:
-    #     st.write("Searching for data...")
-    #     time.sleep(2)
-
-    #     st.write("Found URL.")
-    #     time.sleep(1)
-    #     st.write("Downloading data...")
-    #     time.sleep(1)
-    #     status.update(label="Download complete!", state="complete", expanded=False)
-
 st.button('Rerun')
-
-
-
-
-
-
-
-
-
-
-
-
-
-# import streamlit as st
-
-# from streamlit_option_menu import option_menu
-
-
-# import home, trending, account, your, about
-# st.set_page_config(
-#         page_title="Pondering",
-# )
-
-
-
-# class MultiApp:
-
-#     def __init__(self):
-#         self.apps = []
-
-#     def add_app(self, title, func):
-
-#         self.apps.append({
-#             "title": title,
-#             "function": func
-#         })
-
-#     def run():
-#         # app = st.sidebar(
-#         with st.sidebar:        
-#             app = option_menu(
-#                 menu_title='Pondering ',
-#                 options=['Home','Account','Trending','Your Posts','about'],
-#                 icons=['house-fill','person-circle','trophy-fill','chat-fill','info-circle-fill'],
-#                 menu_icon='chat-text-fill',
-#                 default_index=1,
-#                 styles={
-#                     "container": {"padding": "5!important","background-color":'black'},
-#         "icon": {"color": "white", "font-size": "23px"}, 
-#         "nav-link": {"color":"white","font-size": "20px", "text-align": "left", "margin":"0px", "--hover-color": "blue"},
-#         "nav-link-selected": {"background-color": "#02ab21"},}
-                
-#                 )
-
-        
-#         if app == "Home":
-#             home.app()
-#         if app == "Account":
-#             account.app()    
-#         if app == "Trending":
-#             trending.app()        
-#         if app == 'Your Posts':
-#             your.app()
-#         if app == 'about':
-#             about.app()    
-             
-          
-             
-#     run()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-              
-# def main():
-#     st.title("Wildlife Conservation")
-
-
-#     st.sidebar.title("Menu")
-
-#     choice = st.sidebar.radio("Select", ["Home","Explore Data","Upload Images", "Animal Counting", "Animal Classification", "Animal Information"])
-
-#     if choice == "Home":
-#         display_homepage()
-
-#     elif choice == "Explore Data":
-#         st.header("Exploe Data Visulaization")
-#         explore()
-
-#     elif choice == "Upload Images":
-#         st.header("Upload Images")
-#         upload()
-
-#     elif choice == "Animal Information":
-#         st.header("Animal Information")
-#         animal_information()
-#     elif choice == "Animal Counting":
-#         st.header("Animal Counting")
-#         animal_counting()
-
-#     elif choice == "Animal Classification":
-#         st.header("Animal Classification")
-#         animal_classification()
-
-#     elif choice == "Animal Information":
-#         st.header("Animal Information")
-#         animal_information()
-import streamlit as st
-from streamlit_option_menu import option_menu
-import streamlit as st
-from streamlit_option_menu import option_menu
-import explore, upload, counting
-
 
 def main():
     # st.title("Wildlife Conservation")
@@ -204,8 +64,8 @@ def main():
 
     with st.sidebar:        
         app = option_menu(
-            menu_title='Wildlife Insights ',
-            options=['Home','Data Visualization','Upload Images','Animal Counting','Animal Classification','Animal Information'],
+            menu_title='Wildlife Conservation',
+            options=['Home','Account','Survey Form','Data Visualization','Upload Images','Video Detection','Animal Classification','Animal Information',],
             icons=['house-fill','chart-line','cloud-upload','person-badge','grid','info-circle'],
             menu_icon='chat-text-fill',
             default_index=0,
@@ -219,22 +79,37 @@ def main():
 
     if app == "Home":
         display_homepage()
-
+    elif app == "Account":
+        if 'authenticated' not in st.session_state:
+            st.session_state['authenticated'] = False
+        if not st.session_state['authenticated']:
+            login_or_signup()
+        else:
+            st.success("You are logged in. Navigate to other pages.")
+    elif app == "Survey Form":
+        if st.session_state.get('authenticated', False):
+            survey_form()
+        else:
+            st.warning("Please login to fill out the survey.")
     elif app == "Data Visualization":
         viewer()
 
     elif app == "Upload Images":
         uploads()
 
-    elif app == "Animal Counting":
-        animal_counting()
-
-    elif app == "Animal Classification":
-        animal_classification()
+    elif app == "Video Detection":
+        video1()
 
     elif app == "Animal Information":
-        animal_information()
+        animal_classification()
 
+    elif app == "Animal Classification":
+        robo2()
+        animal_information()
+    
+
+
+    
     st.image("data/Identify.png", use_column_width=True) 
 
     paragraph = """
@@ -294,191 +169,8 @@ def main():
     st.write(paraC)
 
 
-    
-    # st.write ("See Map below for the location of the animals")
-    # df = pd.DataFrame({
-    # "col1": np.random.randn(1000) / 50 + 37.76,
-    # "col2": np.random.randn(1000) / 50 + -122.4,
-    # "col3": np.random.randn(1000) * 100,
-    # "col4": np.random.rand(1000, 4).tolist(),})
-
-    # st.map(df,
-    # latitude='col1',
-    # longitude='col2',
-    # size='col3',
-    # color='col4')
-
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-# data = pd.read_csv('data/animal.csv')
-
-
-
-# st.title('Animal Population Information')
-
-# countries = data['Country'].unique()
-# selected_country = st.selectbox('Select a Country', countries)
-
-# if selected_country:
-#     st.subheader(f'Animal Population in {selected_country}')
-#     country_data = data[data['Country'] == selected_country]
-#     st.write(country_data)
-
-
-
-# # Set up connection.
-# tableau_auth = TSC.PersonalAccessTokenAuth(
-#     st.secrets["tableau"]["token_name"],
-#     st.secrets["tableau"]["token_secret"],
-#     st.secrets["tableau"]["site_id"],
-# )
-# server = TSC.Server(st.secrets["tableau"]["server_url"], use_server_version=True)
-
-
-# Get various data.
-# Explore the tableauserverclient library for more options.
-# Uses st.cache_data to only rerun when the query changes or after 10 min.
-# @st.cache_data(ttl=600)
-# def run_query():
-#     with server.auth.sign_in(tableau_auth):
-
-#         # Get all workbooks.
-#         workbooks, pagination_item = server.workbooks.get()
-#         workbooks_names = [w.name for w in workbooks]
-
-#         # Get views for first workbook.
-#         server.workbooks.populate_views(workbooks[0])
-#         views_names = [v.name for v in workbooks[0].views]
-
-        # # Get image & CSV for first view of first workbook.
-        # view_item = workbooks[0].views[0]
-        # server.views.populate_image(view_item)
-        # server.views.populate_csv(view_item)
-        # view_name = view_item.name
-#         # view_image = view_item.image
-#         # `view_item.csv` is a list of binary objects, convert to str.
-#         view_csv = b"".join(view_item.csv).decode("utf-8")
-
-#         return workbooks_names, views_names, view_name, view_image, view_csv
-
-# workbooks_names, views_names, view_name, view_image, view_csv = run_query()
-
-
-# st.subheader("📊 Data")
-# st.write(f"And here's the data for view *{view_name}*:")
-# st.write(pd.read_csv(StringIO(view_csv)))
-
-
-
-
-
-
-
-# import streamlit as st
-# from htbuilder import HtmlElement, div, ul, li, br, hr, a, p, img, styles, classes, fonts
-# from htbuilder.units import percent, px
-# from htbuilder.funcs import rgba, rgb
-
-
-# def image(src_as_string, **style):
-#     return img(src=src_as_string, style=styles(**style))
-
-# def vimeo_video(video_id):
-#     return f'''
-#         <iframe src="//player.vimeo.com/video/{video_id}?background=1" 
-#                 frameborder="0" 
-#                 webkitallowfullscreen 
-#                 mozallowfullscreen 
-#                 allowfullscreen 
-#                 style="width: 944px; height: 530.528px;">
-#         </iframe>
-#     '''
-
-# def main():
-#     st.markdown(vimeo_video('303126374'), unsafe_allow_html=True)
-
-# if __name__ == "__main__":
-#     main()
-
-
-# def link(link, text, **style):
-#     return a(_href=link, _target="_blank", style=styles(**style))(text)
-
-
-# def layout(*args):
-
-#     style = """
-#     <style>
-#       # MainMenu {visibility: hidden;}
-#       footer {visibility: hidden;}
-#      .stApp { bottom: 105px; }
-#     </style>
-#     """
-
-#     style_div = styles(
-#         position="fixed",
-#         left=0,
-#         bottom=0,
-#         margin=px(0, 0, 0, 0),
-#         width=percent(100),
-#         color="black",
-#         text_align="center",
-#         height="auto",
-#         opacity=1
-#     )
-
-#     style_hr = styles(
-#         display="block",
-#         margin=px(8, 8, "auto", "auto"),
-#         border_style="inset",
-#         border_width=px(2)
-#     )
-
-#     body = p()
-#     foot = div(
-#         style=style_div
-#     )(
-#         hr(
-#             style=style_hr
-#         ),
-#         body
-#     )
-
-#     st.markdown(style, unsafe_allow_html=True)
-
-#     for arg in args:
-#         if isinstance(arg, str):
-#             body(arg)
-
-#         elif isinstance(arg, HtmlElement):
-#             body(arg)
-
-#     st.markdown(str(foot), unsafe_allow_html=True)
-
-
-# def footer():
-#     myargs = [
-#         "Made in ",image('https://avatars3.githubusercontent.com/u/45109972?s=400&v=4',width=px(25), height=px(25)),
-#         " with ❤️ by ",
-#         link("https://twitter.com/ChristianKlose3", "@ChristianKlose3"),
-#         br(),
-#         link("https://buymeacoffee.com/chrischross", image('https://i.imgur.com/thJhzOO.png')),
-#     ]
-#     layout(*myargs)
-
-
-# if __name__ == "__main__":
-#     footer()
-
 
 
 
@@ -486,18 +178,33 @@ st.image("data/9.png", use_column_width=True)
 
 
 st.write("-------")
-st.write("Wildlife Conservation ML Project")
+st.write("## Wildlife Conservation ML Project")
 st.write("Keep in touch with us")
 st.write("Sign up for wildlife updates and ways to get involved") 
 st.button("SIGN UP")
 
-st.write("Guided by : Dr. Mahendra B. Salunke ")
-st.write("Developed by:")
-st.write("- ")
-st.write("- ")
-st.write("- ")
-st.write("- ")
-# Copyright notice
-st.write("Copyright © 2024. All rights reserved.")
+if 'authenticated' not in st.session_state:
+    st.session_state['authenticated'] = False
+if 'survey_completed' not in st.session_state:
+    st.session_state['survey_completed'] = False
+
+if not st.session_state['authenticated']:
+    login_or_signup()
+elif st.session_state['authenticated'] and not st.session_state['survey_completed']:
+    survey_form()
+else:
+    home_page()
+st.write("### Guided by : Dr. Mahendra B. Salunke ")
+st.write("###### Developed by: Group No. 9")
+st.write("- ###### Vedant Angane")
+st.write("- ###### Manvi Gawande")
+st.write("- ###### Vaidahi Pawar")
+st.write("- ###### Gaurav Suryavanshi")
+
+
+st.write("#### Copyright © 2024. All rights reserved.")
 
 st.write("---")
+
+
+
