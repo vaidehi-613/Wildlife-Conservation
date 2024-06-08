@@ -155,7 +155,7 @@ def video1():
          animation()
          video_file = open('data/1D5.mp4', 'rb')
          video_bytes = video_file.read()
-         st.video(video_bytes, start_time=0.1, autoplay=True)
+         st.video(video_bytes)
 
 
 
@@ -164,13 +164,13 @@ def video1():
          video_file = open('data/J15.mp4', 'rb')
          video_bytes = video_file.read()
          animation()
-         st.video(video_bytes, start_time=0, autoplay=True)
+         st.video(video_bytes)
         if(input_path.name == 'e1.mp4'):
          video_file = open('data/e15.mp4', 'rb')
          video_bytes = video_file.read()
          animation()
 
-         st.video(video_bytes, start_time=0, autoplay=True)
+         st.video(video_bytes)
 
         
 
