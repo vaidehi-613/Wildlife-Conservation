@@ -8,3 +8,4 @@ streamlit_option_menu
 inference_sdk
 opencv-python
 requests
+firebase_admin
