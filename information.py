@@ -16,7 +16,7 @@
 
 
 
-from inference_sdk import InferenceHTTPClient
+# from inference_sdk import InferenceHTTPClient
 
 # # CLIENT = InferenceHTTPClient(
 # #     api_url="https://detect.roboflow.com",
@@ -101,7 +101,7 @@ import pandas as pd
 import base64
 import streamlit as st
 
-from inference_sdk import InferenceHTTPClient
+# from inference_sdk import InferenceHTTPClient
 
 def display_text_result(result):
     time_taken = result.get("time")
