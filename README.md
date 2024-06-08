@@ -1,14 +1,17 @@
-<<<<<<< HEAD
+
 # Wildlife-Conservation
 =======
 # Wildlife Conservation and Analysis Using Machine Learning
-#A web application that counts the number of animals in a specific region using cam-
+### Join hands in making the world a sanctuary for wildlife.
+##### Welcome to our Wildlife Conservation Web Application. We're using state-of-the-art technology to drive the mission of Wildlife Conservation.
 
-era recordings, classifies animals as endangered or extinct using images, and summa-
+🌿Count with Precision: Our tech doesn't just count animals; it spotlights each one uniquely. 🐾✨ Computer do the Tagging
 
-rizes animal information from across the world, including migration and biodiversity
+🔍Classify, Track, Preserve: Beyond counting, this project also classifies and tracks, capturing the essence of conservation. An interface where nature and technology dance in harmony. 🌿🤖
 
-of animals in various national parks.
+Anyone collecting camera trap photos can upload them to Wildlife Project. Photos are stored online so you can access them from anywhere, from any device or computer, even out in the field.
+
+Animals in your photos are automatically identified using machine learning technology. Thousands of images can be tagged within minutes, saving you time to do the important work.
 
 ```bash
 $ pip install streamlit
