@@ -18,7 +18,7 @@ from streamlit_option_menu import option_menu
 import numpy as np
 
 from PIL import Image
-import account
+# import account
 import streamlit.components.v1 as components
 
 
