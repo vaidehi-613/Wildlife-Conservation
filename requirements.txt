@@ -9,3 +9,4 @@ inference_sdk
 opencv-python
 requests
 firebase_admin
+cv2
