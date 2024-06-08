@@ -1,7 +1,7 @@
 
 import time
 import streamlit as st
-import cv2
+# import cv2
 
 from information import robo
 
@@ -19,37 +19,37 @@ def uploads():
         st.write("This animal is:", "Can Be Endangered")  # Mock classification
 
 
-def detect_animals(input_path, output_path):
-    # Load the input video
-    cap = cv2.VideoCapture(input_path)
-    frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-    frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    fps = int(cap.get(cv2.CAP_PROP_FPS))
+# def detect_animals(input_path, output_path):
+#     # Load the input video
+#     cap = cv2.VideoCapture(input_path)
+#     frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+#     frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+#     fps = int(cap.get(cv2.CAP_PROP_FPS))
 
-    # Define the codec and create VideoWriter object
-    fourcc = cv2.VideoWriter_fourcc(*'MP4V')
-    out = cv2.VideoWriter(output_path, fourcc, fps, (frame_width, frame_height))
+#     # Define the codec and create VideoWriter object
+#     fourcc = cv2.VideoWriter_fourcc(*'MP4V')
+#     out = cv2.VideoWriter(output_path, fourcc, fps, (frame_width, frame_height))
 
-    while True:
-        ret, frame = cap.read()
-        if not ret:
-            break
+#     while True:
+#         ret, frame = cap.read()
+#         if not ret:
+#             break
 
-        # Detect animals in the frame
-        # Replace this with your actual animal detection code
-        # detections = model.detect_animals(frame)
+#         # Detect animals in the frame
+#         # Replace this with your actual animal detection code
+#         # detections = model.detect_animals(frame)
 
-        # Draw bounding boxes around the detected animals
-        # for detection in detections:
-        #     cv2.rectangle(frame, detection['box'], (0, 255, 0), 2)
+#         # Draw bounding boxes around the detected animals
+#         # for detection in detections:
+#         #     cv2.rectangle(frame, detection['box'], (0, 255, 0), 2)
 
-        # Write the frame to the output video
-        out.write(frame)
+#         # Write the frame to the output video
+#         out.write(frame)
 
-    # Release resources
-    cap.release()
-    out.release()
-    cv2.destroyAllWindows()
+#     # Release resources
+#     cap.release()
+#     out.release()
+#     cv2.destroyAllWindows()
 
 
 
