@@ -17,7 +17,7 @@ Animals in your photos are automatically identified using machine learning techn
 #### Download Files of Images and Videos for reference (BETA Testing of Model)  :
 <a href="https://raw.githubusercontent.com/gauravsuryvanshi06/Wildlife-Conservation/main/OnlyTestingImage.png" target="_blank">Image1</a>
 [Image2](https://cdn.mos.cms.futurecdn.net/HjFE8NKWuCmgfHCcndJ3rK-1200-80.jpg)
-[Video1](https://github.com/gauravsuryvanshi06/Wildlife-Conservation/raw/main/data/51.mp4)
+[Video1](https://github.com/gauravsuryvanshi06/Wildlife-Conservation/raw/main/data/J1.mp4)
 [Video2](https://github.com/gauravsuryvanshi06/Wildlife-Conservation/raw/main/data/1D.mp4)
 
 ```bash
