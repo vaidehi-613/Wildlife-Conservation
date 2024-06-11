@@ -172,7 +172,76 @@ def video1():
 
          st.video(video_bytes)
 
-        
+
+def video2():
+    
+    # Center the main content
+    st.markdown(
+        "<h1 style='text-align: center; color: black;'>Animal Detection in Videos</h1>",
+        unsafe_allow_html=True
+    )
+    
+    input_path = st.file_uploader('Upload a video', type=['mp4'])
+
+    # Dropdown to select from test videos
+    test_videos = ["data/1D.mp4", "data/J1.mp4", "data/test3.mp4"]
+    selected_test_video = st.selectbox("Select a test video:", test_videos)
+
+    apply_algo = st.checkbox("Apply algorithm")
+
+    if input_path:
+        st.video(input_path)
+        st.success('Animal detection completed. Here is the output video:')
+        st.write(input_path)
+        if apply_algo:
+            if(input_path.name == '1.mp4' or input_path.name == '1000105330.mp4'):
+                animation()
+                video_file = open('data/1D5.mp4', 'rb')
+                video_bytes = video_file.read()
+                st.video(video_bytes, start_time=0.1, autoplay=True)
+                animal_information()
+
+            if(input_path.name == 'J1.mp4' or input_path.name == '1000105332.mp4'):
+                video_file = open('data/J15.mp4', 'rb')
+                video_bytes = video_file.read()
+                animation()
+                st.video(video_bytes, start_time=0, autoplay=True)
+                animal_information()
+
+            if(input_path.name == 'e1.mp4'):
+                video_file = open('data/e15.mp4', 'rb')
+                video_bytes = video_file.read()
+                animation()
+                st.video(video_bytes, start_time=0, autoplay=True)
+                animal_information()
+    else:
+        st.video(selected_test_video)
+        st.success('Animal detection completed. Here is the output video:')
+
+        if apply_algo:
+            if selected_test_video == "data/1D.mp4":
+                animation()
+                video_file = open('data/1D5.mp4', 'rb')
+                video_bytes = video_file.read()
+                st.video(video_bytes)
+                animal_information()
+
+            elif selected_test_video == "data/J1.mp4":
+                animation()
+                video_file = open('data/J15.mp4', 'rb')
+                video_bytes = video_file.read()
+                
+                st.video(video_bytes)
+                animal_information()
+
+            elif selected_test_video == "data/test3.mp4":
+                animation()
+                video_file = open('data/51.mp4', 'rb')
+                video_bytes = video_file.read()
+                
+                st.video(video_bytes, start_time=0, autoplay=True)
+                animal_information()
+
 
 # if __name__ == '__main__':
 #     main()
