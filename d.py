@@ -240,7 +240,7 @@ def video2():
                 video_bytes = video_file.read()
                 
                 st.video(video_bytes)
-                animal_information()
+                # animal_information()
 
 
 # if __name__ == '__main__':
