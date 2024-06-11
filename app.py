@@ -1,6 +1,6 @@
 
 from random import choice
-from d import video1
+from d import video2
 from test import home_page, login_or_signup, survey_form
 import explore, upload, counting
 from streamlit_option_menu import option_menu
