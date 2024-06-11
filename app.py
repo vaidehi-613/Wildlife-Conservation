@@ -98,7 +98,7 @@ def main():
         uploads()
 
     elif app == "Video Detection":
-        video1()
+        video2()
 
     elif app == "Animal Information":
         animal_classification()
