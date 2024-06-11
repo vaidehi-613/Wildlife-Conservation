@@ -239,7 +239,7 @@ def video2():
                 video_file = open('data/51.mp4', 'rb')
                 video_bytes = video_file.read()
                 
-                st.video(video_bytes, start_time=0, autoplay=True)
+                st.video(video_bytes)
                 animal_information()
 
 
