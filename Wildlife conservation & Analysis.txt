@@ -1,0 +1,9 @@
+Wildlife Conservation & Analysis Using Machine Learning
+• Developed a computer vision model using InceptionV3 to detect and count wildlife populations from images and videos,
+achieving 97% accuracy.
+• Analyzed ecological data to create species profiles, incorporating population trends and habitat information for
+conservation insights
+• Implemented machine learning algorithms to classify species according to IUCN Red List criteria, enhancing endangered
+species classification.
+• Built a Streamlit-based web application for crowdsourced data collection, enabling real-time data analysis and
+visualization for conservation monitoring.
