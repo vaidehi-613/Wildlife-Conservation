@@ -191,7 +191,7 @@ def video2():
     test_videos = {
         "Test1 Video": "data/1D.mp4",
         "Test2 Video": "data/J1.mp4",
-        "Test3 Video": "data/51.mp4"
+        "Test3 Video": "data/1D.mp4"
     }
 
     # Display the select box with display names
