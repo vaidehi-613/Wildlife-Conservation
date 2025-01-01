@@ -1,7 +1,6 @@
 
 
 # Wildlife Conservation and Analysis Using Machine Learning
-===============================================================================================================================
 
 ### Join hands in making the world a sanctuary for wildlife.
 ##### Welcome to our Wildlife Conservation Web Application. We're using state-of-the-art technology to drive the mission of Wildlife Conservation.
